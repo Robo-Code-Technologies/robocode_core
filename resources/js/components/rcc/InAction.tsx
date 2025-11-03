@@ -22,7 +22,7 @@ export default function InAction() {
                 Robocode Club in action.
             </h1>
             <p className="mt-4 mb-12 text-center text-gray-500">
-                A glimpse of what we've built so far
+                A glimpse of what we've built so far.
             </p>
 
             <Swiper
