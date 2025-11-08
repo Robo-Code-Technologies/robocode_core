@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Blobs } from './Blobs';
+import { Mascot } from './Mascot';
 
 const buttonVariants = {
     initial: { opacity: 0, y: 20 },
@@ -10,9 +11,10 @@ const buttonVariants = {
 
 export function HeroSection() {
     return (
-        <motion.main id="home" className="min-h-[100vh] min-w-screen bg-blue-950 flex items-center">
-            <motion.div className="w-full px-24 sm:px-36 md:px-48 lg:px-60">
-                <motion.div className="pl-8">
+        <motion.main id="home" className="min-h-[100vh] min-w-screen bg-blue-950 flex items-center relative">
+            <div className="w-full flex items-center justify-between px-24 sm:px-36 md:px-48 lg:px-60 gap-8">
+                {/* Left side content */}
+                <motion.div className="pl-8 flex-1">
                     <motion.h1
                         className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[52px] leading-tight font-bold text-white text-left"
                         style={{ fontFamily: 'Fredoka' }}
@@ -41,7 +43,17 @@ export function HeroSection() {
                         </motion.button>
                     </motion.div>
                 </motion.div>
-            </motion.div>
+
+                {/* Right side mascot */}
+                <motion.div 
+                    className="hidden lg:block flex-shrink-0 z-10"
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                    <Mascot />
+                </motion.div>
+            </div>
 
             <motion.div className="pointer-events-none absolute top-0 left-0 h-full w-full overflow-hidden">
                 <Blobs />
