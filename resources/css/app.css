@@ -12,17 +12,6 @@ html {
     scroll-margin-top: 200px;
 }
 
-/* DEBUG: Red borders for navbar targets */
-#home,
-#future,
-#product,
-#partners,
-#team,
-#impact,
-#contact {
-    border: 3px solid red !important;
-}
-
 /* ============================================
    DEBUG: Guide lines only (no element borders)
    Remove this block when done debugging
