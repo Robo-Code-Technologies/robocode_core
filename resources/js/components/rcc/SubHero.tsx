@@ -78,8 +78,8 @@ export function SubHero() {
 
             {/* White Content Section */}
             <motion.div className="bg-white px-24 sm:px-36 md:px-48 lg:px-60 py-4 sm:py-8 md:py-16 lg:py-24">
-                {/* Features Section */}
-                <motion.div className="flex flex-col lg:flex-row w-full gap-8 lg:gap-24">
+                {/* Future Section - AI and Robotics */}
+                <motion.div id="future" className="flex flex-col lg:flex-row w-full gap-8 lg:gap-24">
                     <motion.div className="w-full lg:w-1/2">
                         <motion.img className='mx-auto' src={RobotArm} /> 
                     </motion.div>
@@ -99,7 +99,7 @@ export function SubHero() {
 
                 <hr className='my-20 border-none bg-gray-200 h-[1px]' />
 
-                {/* Features Section */}
+                {/* Features Section - Every student becomes a creator */}
                 <motion.div className="flex flex-col lg:flex-row w-full lg:gap-0 gap-8 lg:items-center">
                     <motion.div className="w-full lg:w-1/2 lg:px-8 lg:pl-20">
                         <motion.p

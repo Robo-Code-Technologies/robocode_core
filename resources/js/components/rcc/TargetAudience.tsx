@@ -12,6 +12,7 @@ export function TargetAudience() {
     return (
         <motion.div className="flex flex-col items-center bg-white pt-16 sm:pt-24 md:pt-32">
             <motion.h1
+                id="partners"
                 className="px-4 text-center text-3xl font-bold text-blue-950 sm:text-4xl md:text-5xl"
                 style={{ fontFamily: 'Fredoka' }}
             >
@@ -65,7 +66,7 @@ export function TargetAudience() {
                 <hr className="h-[1px] border-none bg-gray-200" />
             </div>
 
-            <div className="[&_*]:!outline-none">
+            <div id="team" className="[&_*]:!outline-none">
                 <motion.h1
                     className="px-4 text-center text-3xl font-bold text-blue-950 sm:text-4xl md:text-5xl"
                     style={{ fontFamily: 'Fredoka' }}

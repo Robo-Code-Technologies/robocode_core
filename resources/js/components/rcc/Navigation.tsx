@@ -7,6 +7,23 @@ interface NavigationProps {
 }
 
 export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: NavigationProps) {
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setIsMobileMenuOpen(false);
+        }
+    };
+
+    const navItems = [
+        { label: 'Home', id: 'home' },
+        { label: 'Future', id: 'future' },
+        { label: 'Product', id: 'product' },
+        { label: 'Partners', id: 'partners' },
+        { label: 'Team', id: 'team' },
+        { label: 'Impact', id: 'impact' }
+    ];
+
     return (
         <motion.nav className="fixed top-0 z-50 w-full">
             {/* Desktop Navigation */}
@@ -31,21 +48,23 @@ export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: Navigation
                         transition={{ duration: 0.2 }}
                     />
                     
-                    {['Home', 'Future', 'Product', 'Partners', 'Team', 'Impact'].map((item, index) => (
+                    {navItems.map((item, index) => (
                         <motion.a
-                            key={item}
+                            key={item.label}
+                            onClick={() => scrollToSection(item.id)}
                             className="text-white/95 hover:text-white text-sm font-medium px-3 py-2 rounded-xl transition-all duration-100 hover:bg-white/15 cursor-pointer"
                             whileTap={{ scale: 0.95 }}
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: index * 0.1 }}
                         >
-                            {item}
+                            {item.label}
                         </motion.a>
                     ))}
                     
                     <motion.div className="ml-8 flex items-center gap-3">
                         <motion.a 
+                            onClick={() => scrollToSection('contact')}
                             className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
                             whileHover={{ 
                                 scale: 1.05,
@@ -105,21 +124,23 @@ export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: Navigation
                     transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                     <motion.div className="flex flex-col space-y-1 px-4 py-4">
-                        {['Product', 'Pricing', 'Resources', 'Company', 'Contact'].map((item, index) => (
+                        {navItems.map((item, index) => (
                             <motion.a 
-                                key={item}
+                                key={item.label}
+                                onClick={() => scrollToSection(item.id)}
                                 className="text-white/95 hover:text-white py-3 px-4 rounded-xl transition-all duration-300 hover:bg-white/15 cursor-pointer"
                                 whileHover={{ x: 4, backgroundColor: 'rgba(255,255,255,0.15)' }}
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: isMobileMenuOpen ? 1 : 0, x: isMobileMenuOpen ? 0 : -20 }}
                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                             >
-                                {item}
+                                {item.label}
                             </motion.a>
                         ))}
                         
                         <div className="pt-2 space-y-2">
                             <motion.a 
+                                onClick={() => scrollToSection('contact')}
                                 className="block bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-3 px-4 rounded-xl font-semibold shadow-lg cursor-pointer"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}

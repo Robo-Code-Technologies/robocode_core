@@ -2,6 +2,27 @@
 
 @plugin 'tailwindcss-animate';
 
+/* Scroll padding to account for fixed navbar */
+html {
+    scroll-padding-top: 150px;
+}
+
+/* Specific scroll margin for Product section */
+#product {
+    scroll-margin-top: 200px;
+}
+
+/* DEBUG: Red borders for navbar targets */
+#home,
+#future,
+#product,
+#partners,
+#team,
+#impact,
+#contact {
+    border: 3px solid red !important;
+}
+
 /* ============================================
    DEBUG: Guide lines only (no element borders)
    Remove this block when done debugging
@@ -10,34 +31,38 @@
     outline: 1px solid red !important;
 } */
 
-/* Universal left margin guide line */
-body::before {
+/* ============================================
+   GUIDE LINES - Uncomment when needed
+   ============================================ */
+
+/* Left margin guide line (red) */
+/* body::before {
     content: '' !important;
     position: fixed !important;
-    left: 6rem !important; /* 96px = ml-24 */
+    left: 6rem !important;
     top: 0 !important;
     bottom: 0 !important;
     width: 2px !important;
     background: red !important;
     z-index: 9999999 !important;
     pointer-events: none !important;
-}
+} */
 
-/* Universal right margin guide line */
-body::after {
+/* Right margin guide line (red) */
+/* body::after {
     content: '' !important;
     position: fixed !important;
-    right: 6rem !important; /* 96px = mr-24 */
+    right: 6rem !important;
     top: 0 !important;
     bottom: 0 !important;
     width: 2px !important;
     background: red !important;
     z-index: 9999999 !important;
     pointer-events: none !important;
-}
+} */
 
-/* Center guide line */
-html::before {
+/* Center guide line (blue) */
+/* html::before {
     content: '' !important;
     position: fixed !important;
     left: 50% !important;
@@ -48,34 +73,35 @@ html::before {
     z-index: 9999999 !important;
     pointer-events: none !important;
     transform: translateX(-50%) !important;
-}
+} */
 
-@media (min-width: 640px) {
+/* Responsive adjustments for guide lines */
+/* @media (min-width: 640px) {
     body::before {
-        left: 9rem !important; /* 144px = ml-36 */
+        left: 9rem !important;
     }
     body::after {
-        right: 9rem !important; /* 144px = mr-36 */
+        right: 9rem !important;
     }
 }
 
 @media (min-width: 768px) {
     body::before {
-        left: 12rem !important; /* 192px = ml-48 */
+        left: 12rem !important;
     }
     body::after {
-        right: 12rem !important; /* 192px = mr-48 */
+        right: 12rem !important;
     }
 }
 
 @media (min-width: 1024px) {
     body::before {
-        left: 15rem !important; /* 240px = ml-60 */
+        left: 15rem !important;
     }
     body::after {
-        right: 15rem !important; /* 240px = mr-60 */
+        right: 15rem !important;
     }
-}
+} */
 /* ============================================ */
 
 @source '../views';

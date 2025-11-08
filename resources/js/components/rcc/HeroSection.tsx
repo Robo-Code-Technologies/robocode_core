@@ -10,7 +10,7 @@ const buttonVariants = {
 
 export function HeroSection() {
     return (
-        <motion.main className="min-h-[100vh] min-w-screen bg-blue-950 flex items-center">
+        <motion.main id="home" className="min-h-[100vh] min-w-screen bg-blue-950 flex items-center">
             <motion.div className="w-full px-24 sm:px-36 md:px-48 lg:px-60">
                 <motion.div className="pl-8">
                     <motion.h1

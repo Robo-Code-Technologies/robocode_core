@@ -14,7 +14,7 @@ const images = [Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8];
 
 export default function InAction() {
     return (
-        <div className="bg-white">
+        <div id="impact" className="bg-white">
             <h1
                 className="text-center text-5xl font-bold text-blue-950"
                 style={{ fontFamily: 'Fredoka' }}

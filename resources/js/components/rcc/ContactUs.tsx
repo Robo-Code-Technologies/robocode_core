@@ -1,7 +1,7 @@
 import ContactBlob from '../../assets/contact_blob.svg';
 export default function ContactUs() {
     return (
-        <div className="relative w-full bg-white pb-16">
+        <div id="contact" className="relative w-full bg-white pb-16">
             <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                 <img
                     src={ContactBlob}

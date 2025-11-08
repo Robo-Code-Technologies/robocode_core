@@ -17,9 +17,9 @@ import 'swiper/css/pagination';
 export function Ecosystem() {
     return (
         <motion.div className="relative aspect-[3/2] bg-white">
-            <motion.div className="absolute z-0 bg-white w-full">
+            <motion.div className="absolute z-0 w-full bg-white">
                 <motion.img
-                    className="object-cover w-full absolute -top-4 z-0"
+                    className="absolute -top-4 z-0 w-full object-cover"
                     src={TopBlob}
                     animate={{ y: [0, -10, 0] }}
                     transition={{
@@ -28,7 +28,10 @@ export function Ecosystem() {
                         ease: 'easeInOut',
                     }}
                 />
-                <motion.img className="relative object-cover w-full z-10" src={EcosysBg} />
+                <motion.img
+                    className="relative z-10 w-full object-cover"
+                    src={EcosysBg}
+                />
                 <motion.img
                     className="absolute right-0 -bottom-10 z-0"
                     src={BottomBlob}
@@ -136,6 +139,7 @@ export function Ecosystem() {
                 </motion.div>
                 <motion.div className="w-1/2">
                     <motion.h1
+                        id="product"
                         className="text-6xl font-bold tracking-wide"
                         style={{ fontFamily: 'Fredoka' }}
                     >
@@ -143,7 +147,7 @@ export function Ecosystem() {
                         <br />
                         Endless way to build!
                     </motion.h1>
-                    <motion.p className='max-w-[560px] text-lg text-gray-400 mt-5'>
+                    <motion.p className="mt-5 max-w-[560px] text-lg text-gray-400">
                         We combined curriculum, software, and hardware into one
                         seamless system — making robotics education easy,
                         accessible, and replicable for everyone.
