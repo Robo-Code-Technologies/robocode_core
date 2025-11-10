@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import Image1 from '../../assets/carousel_pics/image_1.jpg';
 import Image2 from '../../assets/carousel_pics/image_2.jpg';
 import Image3 from '../../assets/carousel_pics/image_3.jpg';
@@ -28,8 +28,11 @@ export default function InAction() {
             <Swiper
                 className="max-w-[800px] overflow-hidden rounded-2xl shadow-xl"
                 direction="horizontal"
-                modules={[Pagination]}
+                modules={[Pagination, Autoplay]}
                 spaceBetween={20}
+                autoplay={{
+                    delay: 3000,
+                }}
                 pagination={{
                     clickable: true,
                 }}
