@@ -211,6 +211,9 @@ export function EcosystemBanner() {
 
                     {/* Lower section */}
                     <div className="flex h-1/2 flex-col justify-start space-y-4 pt-6 pl-16">
+                        {/* Divider line */}
+                        <div className="h-px w-full bg-white opacity-30"></div>
+
                         {/* LinkedIn */}
                         <motion.a
                             href="https://www.linkedin.com/company/robo-code-club"
