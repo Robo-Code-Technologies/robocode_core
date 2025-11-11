@@ -22,6 +22,16 @@ html {
 
 /* ============================================
    GUIDE LINES - Uncomment when needed
+   ============================================ 
+   
+   NOTE TO SELF: When the user says "activate the guides" or 
+   "turn on the red/blue guides", they mean uncomment this 
+   entire section below (including the responsive media queries).
+   
+   These are the layout guide lines:
+   - Red lines on left/right = margin boundaries 
+   - Blue line in center = centerline divider
+   
    ============================================ */
 
 /* Left margin guide line (red) */

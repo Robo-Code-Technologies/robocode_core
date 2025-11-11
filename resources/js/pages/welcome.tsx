@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import ContactUs from '@/components/rcc/ContactUs';
 import { Ecosystem } from '@/components/rcc/Ecosystem';
+import { EcosystemBanner } from '@/components/rcc/EcosystemBanner';
 import { Footer } from '@/components/rcc/Footer';
 import InAction from '@/components/rcc/InAction';
 import { TargetAudience } from '@/components/rcc/TargetAudience';
@@ -29,7 +29,7 @@ export default function Welcome() {
             </div>
             <InAction />
             <div className="bg-white py-16"></div>
-            <ContactUs />
+            <EcosystemBanner />
             <Footer />
         </>
     );
