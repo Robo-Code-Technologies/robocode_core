@@ -31,13 +31,196 @@ export function EcosystemBanner() {
                 />
             </motion.div>
 
-            {/* Contact Form - Left side (from red guide to center) */}
+            {/* Contact Section */}
             <div className="absolute top-[calc(50%+50px)] right-24 left-24 z-20 flex -translate-y-1/2 lg:right-60 lg:left-60">
-                {/* Left half */}
+                {/* Left half - Mascot and Links */}
+                <div className="flex w-1/2 flex-col">
+                    {/* Upper section */}
+                    <div className="relative h-1/2 overflow-hidden pr-24">
+                        {/* Mascot - center */}
+                        <motion.img
+                            src={Mascot2}
+                            alt="Mascot"
+                            className="absolute top-1/2 left-[45%] w-72 -translate-x-1/2 -translate-y-1/2"
+                            animate={{
+                                y: [0, -15, 0],
+                                rotate: [-5, 5, -5],
+                            }}
+                            transition={{
+                                duration: 12,
+                                repeat: Infinity,
+                                ease: 'easeInOut',
+                            }}
+                        />
+
+                        {/* Blob 1 - top right */}
+                        <motion.img
+                            src={Blob1}
+                            alt="Blob"
+                            className="absolute top-8 right-24 w-12"
+                            animate={{
+                                y: [0, -10, 0],
+                                x: [0, 5, 0],
+                            }}
+                            transition={{
+                                y: {
+                                    duration: 6,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                },
+                                x: {
+                                    duration: 6,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                },
+                            }}
+                        />
+
+                        {/* Blob 4 - top left */}
+                        <motion.img
+                            src={Blob4}
+                            alt="Blob"
+                            className="absolute top-4 left-4 w-10"
+                            animate={{
+                                y: [0, 10, 0],
+                                x: [0, -5, 0],
+                                rotate: [0, 0, 0, 360],
+                            }}
+                            transition={{
+                                y: {
+                                    duration: 5,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                    delay: 0.5,
+                                },
+                                x: {
+                                    duration: 5,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                    delay: 0.5,
+                                },
+                                rotate: {
+                                    duration: 6,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                },
+                            }}
+                        />
+
+                        {/* Blob 2 - bottom left */}
+                        <motion.img
+                            src={Blob2}
+                            alt="Blob"
+                            className="absolute bottom-6 left-12 w-14"
+                            animate={{
+                                y: [0, -12, 0],
+                                x: [0, 8, 0],
+                            }}
+                            transition={{
+                                y: {
+                                    duration: 7,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                    delay: 1,
+                                },
+                                x: {
+                                    duration: 7,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                    delay: 1,
+                                },
+                            }}
+                        />
+                    </div>
+
+                    {/* Lower section */}
+                    <div className="flex h-1/2 flex-col justify-start space-y-4 pt-6 pr-24">
+                        {/* Divider line */}
+                        <div className="h-px w-full bg-white opacity-30"></div>
+
+                        {/* LinkedIn */}
+                        <motion.a
+                            href="https://www.linkedin.com/company/robo-code-club"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-4 pt-4"
+                            whileHover={{ x: 5 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <img
+                                src={LinkedinIcon}
+                                alt="LinkedIn"
+                                className="h-12 w-12"
+                            />
+                            <span className="text-lg text-white">
+                                linkedin.com/company/robo-code-club
+                            </span>
+                        </motion.a>
+
+                        {/* Facebook */}
+                        <motion.a
+                            href="https://www.facebook.com/robocodeclubph"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-4"
+                            whileHover={{ x: 5 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <img
+                                src={FacebookIcon}
+                                alt="Facebook"
+                                className="h-12 w-12"
+                            />
+                            <span className="text-lg text-white">
+                                facebook.com/robocodeclubph
+                            </span>
+                        </motion.a>
+
+                        {/* Phone */}
+                        <motion.a
+                            href="tel:+639980471693"
+                            className="flex items-center gap-4"
+                            whileHover={{ x: 5 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <img
+                                src={PhoneIcon}
+                                alt="Phone"
+                                className="h-12 w-12"
+                            />
+                            <span className="text-lg text-white">
+                                +63 998 047 1693
+                            </span>
+                        </motion.a>
+
+                        {/* Email */}
+                        <motion.a
+                            href="mailto:contact@robocodeclub.com"
+                            className="flex items-center gap-4"
+                            whileHover={{ x: 5 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <img
+                                src={EmailIcon}
+                                alt="Email"
+                                className="h-12 w-12"
+                            />
+                            <span className="text-lg text-white">
+                                contact@robocodeclub.com
+                            </span>
+                        </motion.a>
+                    </div>
+                </div>
+
+                {/* Right half - Contact Form */}
                 <div className="w-1/2">
                     <h1
+                        id="contact"
                         className="text-5xl font-bold text-white"
-                        style={{ fontFamily: 'Fredoka' }}
+                        style={{
+                            fontFamily: 'Fredoka',
+                            scrollMarginTop: '0',
+                        }}
                     >
                         Contact Us
                     </h1>
@@ -107,185 +290,6 @@ export function EcosystemBanner() {
                             </button>
                         </div>
                     </form>
-                </div>
-
-                {/* Right half */}
-                <div className="flex w-1/2 flex-col">
-                    {/* Upper section */}
-                    <div className="relative h-1/2 overflow-hidden">
-                        {/* Mascot - center */}
-                        <motion.img
-                            src={Mascot2}
-                            alt="Mascot"
-                            className="absolute top-1/2 left-1/2 w-64 -translate-x-1/2 -translate-y-1/2"
-                            animate={{
-                                y: [0, -15, 0],
-                                rotate: [-5, 5, -5],
-                            }}
-                            transition={{
-                                duration: 12,
-                                repeat: Infinity,
-                                ease: 'easeInOut',
-                            }}
-                        />
-
-                        {/* Blob 1 - top left */}
-                        <motion.img
-                            src={Blob1}
-                            alt="Blob"
-                            className="absolute top-4 left-4 w-12"
-                            animate={{
-                                y: [0, -10, 0],
-                                x: [0, 5, 0],
-                            }}
-                            transition={{
-                                y: {
-                                    duration: 6,
-                                    repeat: Infinity,
-                                    ease: 'easeInOut',
-                                },
-                                x: {
-                                    duration: 6,
-                                    repeat: Infinity,
-                                    ease: 'easeInOut',
-                                },
-                            }}
-                        />
-
-                        {/* Blob 4 - top right */}
-                        <motion.img
-                            src={Blob4}
-                            alt="Blob"
-                            className="absolute top-8 right-8 w-10"
-                            animate={{
-                                y: [0, 10, 0],
-                                x: [0, -5, 0],
-                                rotate: [0, 0, 0, 360],
-                            }}
-                            transition={{
-                                y: {
-                                    duration: 5,
-                                    repeat: Infinity,
-                                    ease: 'easeInOut',
-                                    delay: 0.5,
-                                },
-                                x: {
-                                    duration: 5,
-                                    repeat: Infinity,
-                                    ease: 'easeInOut',
-                                    delay: 0.5,
-                                },
-                                rotate: {
-                                    duration: 6,
-                                    repeat: Infinity,
-                                    ease: 'easeInOut',
-                                },
-                            }}
-                        />
-
-                        {/* Blob 2 - bottom right */}
-                        <motion.img
-                            src={Blob2}
-                            alt="Blob"
-                            className="absolute right-12 bottom-6 w-14"
-                            animate={{
-                                y: [0, -12, 0],
-                                x: [0, 8, 0],
-                            }}
-                            transition={{
-                                y: {
-                                    duration: 7,
-                                    repeat: Infinity,
-                                    ease: 'easeInOut',
-                                    delay: 1,
-                                },
-                                x: {
-                                    duration: 7,
-                                    repeat: Infinity,
-                                    ease: 'easeInOut',
-                                    delay: 1,
-                                },
-                            }}
-                        />
-                    </div>
-
-                    {/* Lower section */}
-                    <div className="flex h-1/2 flex-col justify-start space-y-4 pt-6 pl-16">
-                        {/* Divider line */}
-                        <div className="h-px w-full bg-white opacity-30"></div>
-
-                        {/* LinkedIn */}
-                        <motion.a
-                            href="https://www.linkedin.com/company/robo-code-club"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-4"
-                            whileHover={{ x: 5 }}
-                            transition={{ duration: 0.2 }}
-                        >
-                            <img
-                                src={LinkedinIcon}
-                                alt="LinkedIn"
-                                className="h-12 w-12"
-                            />
-                            <span className="text-lg text-white">
-                                linkedin.com/company/robo-code-club
-                            </span>
-                        </motion.a>
-
-                        {/* Facebook */}
-                        <motion.a
-                            href="https://www.facebook.com/robocodeclubph"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-4"
-                            whileHover={{ x: 5 }}
-                            transition={{ duration: 0.2 }}
-                        >
-                            <img
-                                src={FacebookIcon}
-                                alt="Facebook"
-                                className="h-12 w-12"
-                            />
-                            <span className="text-lg text-white">
-                                facebook.com/robocodeclubph
-                            </span>
-                        </motion.a>
-
-                        {/* Phone */}
-                        <motion.a
-                            href="tel:+639980471693"
-                            className="flex items-center gap-4"
-                            whileHover={{ x: 5 }}
-                            transition={{ duration: 0.2 }}
-                        >
-                            <img
-                                src={PhoneIcon}
-                                alt="Phone"
-                                className="h-12 w-12"
-                            />
-                            <span className="text-lg text-white">
-                                +63 998 047 1693
-                            </span>
-                        </motion.a>
-
-                        {/* Email */}
-                        <motion.a
-                            href="mailto:contact@robocodeclub.com"
-                            className="flex items-center gap-4"
-                            whileHover={{ x: 5 }}
-                            transition={{ duration: 0.2 }}
-                        >
-                            <img
-                                src={EmailIcon}
-                                alt="Email"
-                                className="h-12 w-12"
-                            />
-                            <span className="text-lg text-white">
-                                contact@robocodeclub.com
-                            </span>
-                        </motion.a>
-                    </div>
                 </div>
             </div>
         </motion.div>

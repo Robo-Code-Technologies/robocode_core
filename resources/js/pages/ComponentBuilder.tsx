@@ -1,42 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
+import Bot from '../assets/ecosys_bot.png';
+import Elearning from '../assets/ecosys_elearning.png';
+import Path from '../assets/ecosys_path.png';
 import { DocumentHead } from '../components/rcc/DocumentHead';
 
 export default function ComponentBuilder() {
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-    const leftEyeRef = useRef<HTMLDivElement>(null);
-    const rightEyeRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            setMousePos({ x: e.clientX, y: e.clientY });
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, []);
-
-    const calculateEyePosition = (eyeRef: React.RefObject<HTMLDivElement>) => {
-        if (!eyeRef.current) return { x: 0, y: 0 };
-
-        const eyeBox = eyeRef.current.getBoundingClientRect();
-        const eyeCenterX = eyeBox.left + eyeBox.width / 2;
-        const eyeCenterY = eyeBox.top + eyeBox.height / 2;
-
-        const angle = Math.atan2(mousePos.y - eyeCenterY, mousePos.x - eyeCenterX);
-        const distance = Math.min(
-            eyeBox.width / 4, // Max distance the pupil can move (25% of box size)
-            Math.hypot(mousePos.x - eyeCenterX, mousePos.y - eyeCenterY) / 10
-        );
-
-        return {
-            x: Math.cos(angle) * distance,
-            y: Math.sin(angle) * distance,
-        };
-    };
-
-    const leftEyePos = calculateEyePosition(leftEyeRef);
-    const rightEyePos = calculateEyePosition(rightEyeRef);
+    // No state needed - pure continuous animation!
 
     return (
         <>
@@ -47,56 +17,159 @@ export default function ComponentBuilder() {
             >
                 <div className="container mx-auto px-4 py-16">
                     <h1 className="mb-8 text-center text-4xl font-bold text-white">
-                        Component Builder
+                        Vertical Scroll Carousel
                     </h1>
 
-                    {/* Your component will go here */}
-                    <div className="flex items-center justify-center rounded-lg bg-white/10 p-8">
-                        <div className="relative max-w-md">
-                            <img
-                                src="/mascot.png"
-                                alt="Mascot"
-                                className="w-full rounded-lg"
-                            />
+                    {/* Container with gold lines */}
+                    <div className="relative mx-auto max-w-sm">
+                        {/* Top Gold line */}
+                        <div
+                            className="absolute top-0 left-1/2 z-10 h-5 w-[110%] -translate-x-1/2 rounded-full"
+                            style={{
+                                background:
+                                    'linear-gradient(to bottom, #F4B860, #D69E4A)',
+                            }}
+                        ></div>
 
-                            {/* Left Eye */}
-                            <div
-                                ref={leftEyeRef}
-                                className="absolute flex items-center justify-center"
-                                style={{
-                                    width: '10%',
-                                    aspectRatio: '1',
-                                    top: '27%',
-                                    left: '40%',
+                        {/* Parent div that crops/hides overflow */}
+                        <div
+                            className="relative w-full overflow-hidden"
+                            style={{ height: '600px' }}
+                        >
+                            {/* Infinite scrolling divs - continuous animation */}
+                            <motion.div
+                                className="flex flex-col gap-4"
+                                animate={{
+                                    y: ['0%', '-50%'], // Move up by exactly 50% (half of total content = one full set)
+                                }}
+                                transition={{
+                                    y: {
+                                        duration: 18, // Faster: 18 seconds for full cycle (6 seconds per item)
+                                        repeat: Infinity,
+                                        ease: 'linear',
+                                        repeatType: 'loop',
+                                    },
                                 }}
                             >
-                                <div
-                                    className="w-1/2 h-1/2 rounded-full bg-white transition-transform duration-100"
-                                    style={{
-                                        transform: `translate(${leftEyePos.x}px, ${leftEyePos.y}px)`,
-                                    }}
-                                />
-                            </div>
+                                {/* 1. Robo Code Path */}
+                                <div className="flex aspect-square w-full flex-col items-center justify-center rounded-2xl bg-white p-10 text-center">
+                                    <img
+                                        src={Path}
+                                        className="mb-4 h-24"
+                                        alt="Robo Code Path"
+                                    />
+                                    <h1
+                                        className="text-xl font-bold text-blue-950"
+                                        style={{ fontFamily: 'Fredoka' }}
+                                    >
+                                        Robo Code Path
+                                    </h1>
+                                    <p className="text-gray-500">
+                                        (Programs & Curriculum)
+                                    </p>
+                                </div>
 
-                            {/* Right Eye */}
-                            <div
-                                ref={rightEyeRef}
-                                className="absolute flex items-center justify-center"
-                                style={{
-                                    width: '10%',
-                                    aspectRatio: '1',
-                                    top: '27%',
-                                    right: '38%',
-                                }}
-                            >
-                                <div
-                                    className="w-1/2 h-1/2 rounded-full bg-white transition-transform duration-100"
-                                    style={{
-                                        transform: `translate(${rightEyePos.x}px, ${rightEyePos.y}px)`,
-                                    }}
-                                />
-                            </div>
+                                {/* 2. Robo Code Learn */}
+                                <div className="flex aspect-square w-full flex-col items-center justify-center rounded-2xl bg-white p-10 text-center">
+                                    <img
+                                        src={Elearning}
+                                        className="mb-4 h-24"
+                                        alt="Robo Code Learn"
+                                    />
+                                    <h1
+                                        className="text-xl font-bold text-blue-950"
+                                        style={{ fontFamily: 'Fredoka' }}
+                                    >
+                                        Robo Code Learn
+                                    </h1>
+                                    <p className="text-gray-500">
+                                        (e-Learning Hub)
+                                    </p>
+                                </div>
+
+                                {/* 3. Robo Code Bot */}
+                                <div className="flex aspect-square w-full flex-col items-center justify-center rounded-2xl bg-white p-10 text-center">
+                                    <img
+                                        src={Bot}
+                                        className="mb-4 h-24"
+                                        alt="Robo Code Bot"
+                                    />
+                                    <h1
+                                        className="text-xl font-bold text-blue-950"
+                                        style={{ fontFamily: 'Fredoka' }}
+                                    >
+                                        Robo Code Bot
+                                    </h1>
+                                    <p className="text-gray-500">
+                                        (Robotic Kits)
+                                    </p>
+                                </div>
+
+                                {/* Duplicate set for seamless loop */}
+                                {/* 1. Robo Code Path (duplicate) */}
+                                <div className="flex aspect-square w-full flex-col items-center justify-center rounded-2xl bg-white p-10 text-center">
+                                    <img
+                                        src={Path}
+                                        className="mb-4 h-24"
+                                        alt="Robo Code Path"
+                                    />
+                                    <h1
+                                        className="text-xl font-bold text-blue-950"
+                                        style={{ fontFamily: 'Fredoka' }}
+                                    >
+                                        Robo Code Path
+                                    </h1>
+                                    <p className="text-gray-500">
+                                        (Programs & Curriculum)
+                                    </p>
+                                </div>
+
+                                {/* 2. Robo Code Learn (duplicate) */}
+                                <div className="flex aspect-square w-full flex-col items-center justify-center rounded-2xl bg-white p-10 text-center">
+                                    <img
+                                        src={Elearning}
+                                        className="mb-4 h-24"
+                                        alt="Robo Code Learn"
+                                    />
+                                    <h1
+                                        className="text-xl font-bold text-blue-950"
+                                        style={{ fontFamily: 'Fredoka' }}
+                                    >
+                                        Robo Code Learn
+                                    </h1>
+                                    <p className="text-gray-500">
+                                        (e-Learning Hub)
+                                    </p>
+                                </div>
+
+                                {/* 3. Robo Code Bot (duplicate) */}
+                                <div className="flex aspect-square w-full flex-col items-center justify-center rounded-2xl bg-white p-10 text-center">
+                                    <img
+                                        src={Bot}
+                                        className="mb-4 h-24"
+                                        alt="Robo Code Bot"
+                                    />
+                                    <h1
+                                        className="text-xl font-bold text-blue-950"
+                                        style={{ fontFamily: 'Fredoka' }}
+                                    >
+                                        Robo Code Bot
+                                    </h1>
+                                    <p className="text-gray-500">
+                                        (Robotic Kits)
+                                    </p>
+                                </div>
+                            </motion.div>
                         </div>
+
+                        {/* Bottom Gold line */}
+                        <div
+                            className="absolute bottom-0 left-1/2 z-10 h-5 w-[110%] -translate-x-1/2 rounded-full"
+                            style={{
+                                background:
+                                    'linear-gradient(to bottom, #F4B860, #D69E4A)',
+                            }}
+                        ></div>
                     </div>
                 </div>
             </div>
