@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 
 import Blob1 from '../../assets/blob_1.svg';
-import Blob2 from '../../assets/blob_2.svg';
 import Blob3 from '../../assets/blob_3.svg';
 import Blob4 from '../../assets/blob_4.svg';
 import LeftBackgroundBlob from '../../assets/left_blob_bg.svg';
@@ -23,11 +22,12 @@ const rotatingAnimation = {
 export function Blobs() {
     return (
         <>
-            {/* Large Background Blobs */}
+            {/* Large Background Blobs - Hidden on mobile, visible from md: up */}
+            {/* Constrained to stay within 12% margin area */}
             <motion.img
                 src={LeftForegroundBlob}
                 alt="RoboCode Foreground Blob"
-                className="pointer-events-none absolute left-0 z-1 select-none hidden sm:block max-h-full"
+                className="pointer-events-none absolute left-0 z-1 hidden h-full max-w-[12%] select-none md:block"
                 animate={{
                     y: [0, -10, 0],
                     x: [0, -15, 0],
@@ -40,7 +40,7 @@ export function Blobs() {
             <motion.img
                 src={LeftBackgroundBlob}
                 alt="RoboCode Background Blob"
-                className="pointer-events-none absolute left-0 z-0 select-none hidden sm:block max-h-full"
+                className="pointer-events-none absolute left-0 z-0 hidden h-full max-w-[12%] select-none md:block"
                 animate={{
                     y: [0, -15, 0],
                     x: [0, -10, 0],
@@ -54,7 +54,7 @@ export function Blobs() {
             <motion.img
                 src={RightBackgroundBlob}
                 alt="RoboCode Background Blob"
-                className="pointer-events-none absolute right-0 z-0 select-none hidden sm:block max-h-full"
+                className="pointer-events-none absolute right-0 z-0 hidden h-full max-w-[12%] select-none md:block"
                 animate={{
                     y: [0, -12, 0],
                     x: [0, 10, 0],
@@ -68,7 +68,7 @@ export function Blobs() {
             <motion.img
                 src={RightForegroundBlob}
                 alt="RoboCode Foreground Blob"
-                className="pointer-events-none absolute right-0 z-1 select-none hidden sm:block max-h-full"
+                className="pointer-events-none absolute right-0 z-1 hidden h-full max-w-[12%] select-none md:block"
                 animate={{
                     y: [0, 18, 0],
                     x: [0, 15, 0],
@@ -80,10 +80,10 @@ export function Blobs() {
                 }}
             />
 
-            {/* Small Decorative Blobs */}
+            {/* Small Decorative Blobs - Responsive positioning and sizing */}
             <motion.img
                 src={Blob4}
-                className="absolute bottom-16 left-4 sm:left-16 md:left-32 lg:left-96 w-8 sm:w-12 md:w-16 lg:w-auto"
+                className="absolute bottom-12 left-4 w-6 sm:bottom-16 sm:left-12 sm:w-10 md:left-24 md:w-12 lg:bottom-16 lg:left-96 lg:w-16"
                 animate={{
                     rotate: [0, 0, 0, 0, 0, 0, 0, 0, 360, 180],
                     x: [0, 3, -2, 4, 0, 2, -1, 3, -2, 0],
@@ -96,10 +96,14 @@ export function Blobs() {
             />
             <motion.img
                 src={Blob3}
-                className="absolute bottom-32 sm:bottom-48 md:bottom-64 left-2 sm:left-8 md:left-16 lg:left-32 w-6 sm:w-10 md:w-12 lg:w-auto"
+                className="absolute top-24 right-0 max-w-[12%] sm:top-36 md:top-48 lg:top-64"
+                style={{ 
+                    width: 'clamp(1.25rem, 0.8vw, 3rem)',
+                    marginRight: '2%'
+                }}
                 animate={{
                     rotate: [0, 0, 0, 0, 0, 0, 0, 180, 360, 180],
-                    x: [0, -3, 2, -2, 0, 1, -2, 3, -1, 0],
+                    x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     y: [0, 4, -3, 2, 0, -2, 3, -2, 1, 0],
                 }}
                 transition={{
@@ -109,22 +113,8 @@ export function Blobs() {
                 }}
             />
             <motion.img
-                src={Blob2}
-                className="absolute top-32 sm:top-40 md:top-48 right-4 sm:right-16 md:right-32 lg:right-96 w-8 sm:w-12 md:w-16 lg:w-auto"
-                animate={{
-                    rotate: [0, 0, 0, 0, 0, 0, 0, 540, 180, 360],
-                    x: [0, 4, -3, 2, 0, -3, 4, -2, 1, 0],
-                    y: [0, -4, 5, -2, 0, 3, -4, 2, -1, 0],
-                }}
-                transition={{
-                    duration: 10,
-                    delay: 5,
-                    ...rotatingAnimation
-                }}
-            />
-            <motion.img
                 src={Blob1}
-                className="absolute right-4 sm:right-12 md:right-24 lg:right-48 bottom-24 sm:bottom-32 md:bottom-48 w-6 sm:w-10 md:w-12 lg:w-auto"
+                className="absolute bottom-20 right-4 w-5 sm:bottom-24 sm:right-10 sm:w-8 md:bottom-36 md:right-20 md:w-10 lg:bottom-48 lg:right-48 lg:w-12"
                 animate={{
                     rotate: [0, 0, 0, 0, 0, 0, 0, 360, 180, 720],
                     x: [0, -5, 3, -2, 0, 3, -4, 2, -2, 0],

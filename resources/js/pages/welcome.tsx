@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import ContactUs from '@/components/rcc/ContactUs';
 import { Ecosystem } from '@/components/rcc/Ecosystem';
+import { EcosystemBanner } from '@/components/rcc/EcosystemBanner';
 import { Footer } from '@/components/rcc/Footer';
 import InAction from '@/components/rcc/InAction';
 import { TargetAudience } from '@/components/rcc/TargetAudience';
@@ -24,12 +24,12 @@ export default function Welcome() {
             <SubHero />
             <Ecosystem />
             <TargetAudience />
-            <div className="bg-white p-16">
+            <div className="bg-white px-24 py-16 sm:px-36 md:px-48 lg:px-60">
                 <hr className="h-[1px] border-none bg-gray-200" />
             </div>
             <InAction />
             <div className="bg-white py-16"></div>
-            <ContactUs />
+            <EcosystemBanner />
             <Footer />
         </>
     );
