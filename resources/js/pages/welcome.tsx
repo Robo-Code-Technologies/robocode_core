@@ -24,7 +24,7 @@ export default function Welcome() {
             <SubHero />
             <Ecosystem />
             <TargetAudience />
-            <div className="bg-white p-16">
+            <div className="bg-white px-24 py-16 sm:px-36 md:px-48 lg:px-60">
                 <hr className="h-[1px] border-none bg-gray-200" />
             </div>
             <InAction />

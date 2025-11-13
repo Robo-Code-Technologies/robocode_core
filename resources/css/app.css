@@ -35,33 +35,33 @@ html {
    ============================================ */
 
 /* Left margin guide line (red) */
-/* body::before {
+body::before {
     content: '' !important;
     position: fixed !important;
-    left: 6rem !important;
+    left: 12% !important;
     top: 0 !important;
     bottom: 0 !important;
     width: 2px !important;
     background: red !important;
     z-index: 9999999 !important;
     pointer-events: none !important;
-} */
+}
 
 /* Right margin guide line (red) */
-/* body::after {
+body::after {
     content: '' !important;
     position: fixed !important;
-    right: 6rem !important;
+    right: 12% !important;
     top: 0 !important;
     bottom: 0 !important;
     width: 2px !important;
     background: red !important;
     z-index: 9999999 !important;
     pointer-events: none !important;
-} */
+}
 
 /* Center guide line (blue) */
-/* html::before {
+html::before {
     content: '' !important;
     position: fixed !important;
     left: 50% !important;
@@ -72,35 +72,24 @@ html {
     z-index: 9999999 !important;
     pointer-events: none !important;
     transform: translateX(-50%) !important;
-} */
-
-/* Responsive adjustments for guide lines */
-/* @media (min-width: 640px) {
-    body::before {
-        left: 9rem !important;
-    }
-    body::after {
-        right: 9rem !important;
-    }
 }
 
-@media (min-width: 768px) {
-    body::before {
-        left: 12rem !important;
-    }
-    body::after {
-        right: 12rem !important;
-    }
+/* Hide guides when toggle is off */
+body.hide-guides::before,
+body.hide-guides::after {
+    display: none !important;
 }
 
-@media (min-width: 1024px) {
-    body::before {
-        left: 15rem !important;
-    }
-    body::after {
-        right: 15rem !important;
-    }
-} */
+html:has(body.hide-guides)::before {
+    display: none !important;
+}
+
+/* Hide debug borders/outlines when guides are off */
+body.hide-guides * {
+    outline: none !important;
+}
+
+/* Responsive adjustments for guide lines - No longer needed with percentage-based margins */
 /* ============================================ */
 
 @source '../views';

@@ -6,32 +6,104 @@ const buttonVariants = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     hover: { scale: 1.05 },
-    tap: { scale: 0.95 }
+    tap: { scale: 0.95 },
 };
 
 export function HeroSection() {
     return (
-        <motion.main id="home" className="min-h-[100vh] min-w-screen bg-blue-950 flex items-center relative">
-            <div className="w-full flex items-center justify-between px-24 sm:px-36 md:px-48 lg:px-60 gap-8">
-                {/* Left side content */}
-                <motion.div className="pl-8 flex-1">
+        <motion.main
+            id="home"
+            className="relative z-[100] flex min-h-[100vh] min-w-screen items-center bg-blue-950"
+            style={{ outline: '4px solid cyan', outlineOffset: '-4px' }}
+        >
+            {/* Main content container - ready for restructuring */}
+            <div className="relative z-50 flex h-full min-h-full w-full items-center">
+                {/* Content area - 75% width centered, fills available height */}
+                <div 
+                    className="hero-content-1300 relative z-50 mx-auto flex h-auto w-[75%] max-h-[80vh] flex-col items-center justify-center outline outline-4 outline-green-500 md:flex-row"
+                >
+                    <style>{`
+                        @media (min-width: 1200px) and (max-width: 1400px) {
+                            .hero-content-1300 {
+                                margin-top: 0;
+                            }
+                            .hero-heading-1300 {
+                                font-size: 4vh !important;
+                            }
+                        }
+                    `}</style>
+                    {/* Mascot section - Shows on top on mobile, right side on desktop */}
+                    <motion.div 
+                        className="flex w-full items-center justify-center py-8 outline outline-2 outline-purple-500 md:order-2 md:w-[40%]"
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                    >
+                        <Mascot />
+                    </motion.div>
+
+                    {/* Text Content section - Shows below mascot on mobile, left side on desktop */}
+                    <motion.div className="flex w-full flex-col justify-center py-8 text-center outline outline-2 outline-yellow-500 md:order-1 md:w-[60%] md:text-left">
+                        <motion.h1
+                            className="hero-heading-1300 font-bold leading-tight text-white"
+                            style={{ 
+                                fontFamily: 'Fredoka',
+                                fontSize: 'clamp(1.5rem, 5vh, 4rem)'
+                            }}
+                        >
+                            Building Future
+                            <br /> Innovators Through
+                            <br /> Robotics & Coding
+                        </motion.h1>
+                        <motion.p 
+                            className="my-4 leading-relaxed text-gray-400 sm:my-6 md:my-8 lg:my-10"
+                            style={{ fontSize: 'clamp(0.875rem, 2vh, 1.25rem)' }}
+                        >
+                            Robo Code Club empowers students to explore technology,
+                            solve problems, and create real-world solutions through
+                            hands-on robotics and coding programs.
+                        </motion.p>
+
+                        <motion.div className="flex justify-center md:justify-start">
+                            <motion.button
+                                className="rounded-full bg-yellow-400 font-semibold text-blue-950 transition-all duration-100 hover:bg-yellow-300"
+                                style={{ 
+                                    fontSize: 'clamp(0.875rem, 1.8vh, 1.125rem)',
+                                    padding: 'clamp(0.625rem, 1.5vh, 1rem) clamp(1.25rem, 3vh, 2rem)'
+                                }}
+                                variants={buttonVariants}
+                                initial="initial"
+                                animate="animate"
+                                whileHover="hover"
+                                whileTap="tap"
+                                transition={{ duration: 0.2, delay: 0.1 }}
+                            >
+                                Learn More
+                            </motion.button>
+                        </motion.div>
+                    </motion.div>
+                </div>
+
+                {/* ========== COMMENTED OUT - Original Content ========== */}
+                {/* 
+                <motion.div className="flex-1 text-center md:text-left">
                     <motion.h1
-                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[52px] leading-tight font-bold text-white text-left"
+                        className="text-2xl leading-tight font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
                         style={{ fontFamily: 'Fredoka' }}
                     >
                         Building Future
                         <br /> Innovators Through
                         <br /> Robotics & Coding
                     </motion.h1>
-                    <motion.p className="my-6 sm:my-8 md:my-10 text-gray-400 text-base sm:text-lg md:text-xl leading-relaxed text-left max-w-2xl">
+                    <motion.p className="mx-auto my-4 max-w-2xl text-sm leading-relaxed text-gray-400 sm:my-6 sm:text-base md:mx-0 md:my-8 md:text-lg lg:my-10 lg:text-xl">
                         Robo Code Club empowers students to explore technology,
-                        solve problems, and create real-world solutions
-                        through hands-on robotics and coding programs.
+                        solve problems, and create real-world solutions through
+                        hands-on robotics and coding programs.
                     </motion.p>
 
-                    <motion.div className="flex justify-start">
+                    <motion.div className="flex justify-center md:justify-start">
                         <motion.button
-                            className="rounded-full bg-yellow-400 px-6 sm:px-8 py-3 sm:py-4 font-semibold text-blue-950 transition-all duration-100 hover:bg-yellow-300 text-base sm:text-lg"
+                            className="rounded-full bg-yellow-400 px-5 py-2.5 text-sm font-semibold text-blue-950 transition-all duration-100 hover:bg-yellow-300 sm:px-6 sm:py-3 sm:text-base md:px-8 md:py-4 md:text-lg"
                             variants={buttonVariants}
                             initial="initial"
                             animate="animate"
@@ -44,17 +116,19 @@ export function HeroSection() {
                     </motion.div>
                 </motion.div>
 
-                {/* Right side mascot */}
-                <motion.div 
-                    className="hidden lg:block flex-shrink-0 z-10"
+                <motion.div
+                    className="z-10 hidden flex-shrink-0 md:block"
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                 >
                     <Mascot />
                 </motion.div>
+                */}
+                {/* ========== END COMMENTED OUT ========== */}
             </div>
 
+            {/* Background Blobs */}
             <motion.div className="pointer-events-none absolute top-0 left-0 h-full w-full overflow-hidden">
                 <Blobs />
             </motion.div>

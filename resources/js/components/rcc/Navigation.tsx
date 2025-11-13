@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import RoboCodeLogo from '../../assets/rcc_logo.svg';
 
@@ -7,6 +8,21 @@ interface NavigationProps {
 }
 
 export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: NavigationProps) {
+    const [showDebug, setShowDebug] = useState(true);
+
+    useEffect(() => {
+        // Toggle the 'hide-guides' class on body to hide CSS guide lines
+        if (showDebug) {
+            document.body.classList.remove('hide-guides');
+        } else {
+            document.body.classList.add('hide-guides');
+        }
+    }, [showDebug]);
+
+    const toggleDebug = () => {
+        setShowDebug(!showDebug);
+    };
+
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -25,7 +41,7 @@ export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: Navigation
     ];
 
     return (
-        <motion.nav className="fixed top-0 z-50 w-full">
+        <motion.nav className="fixed top-0 z-[200] w-full">
             {/* Desktop Navigation */}
             <motion.div className="hidden md:flex w-full justify-center px-6 pt-4">
                 <motion.div 
@@ -43,9 +59,12 @@ export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: Navigation
                 >
                     <motion.img 
                         src={RoboCodeLogo} 
-                        className="h-8 mr-8"
+                        className="h-8 mr-8 cursor-pointer"
+                        onClick={toggleDebug}
                         whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
+                        title="Toggle Debug Guides"
                     />
                     
                     {navItems.map((item, index) => (
@@ -96,9 +115,12 @@ export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: Navigation
                 <div className="flex items-center justify-between px-6 py-4">
                     <motion.img 
                         src={RoboCodeLogo} 
-                        className="h-7"
+                        className="h-7 cursor-pointer"
+                        onClick={toggleDebug}
                         whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
+                        title="Toggle Debug Guides"
                     />
                     <motion.button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
