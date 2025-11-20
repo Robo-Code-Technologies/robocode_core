@@ -227,7 +227,11 @@ body.hide-guides * {
         @apply border-border;
     }
 
+    html {
+        @apply bg-white;
+    }
+
     body {
-        @apply bg-background text-foreground;
+        @apply bg-white text-foreground;
     }
 }

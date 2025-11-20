@@ -107,19 +107,20 @@ export function Ecosystem({ showDebug = false }: EcosystemProps) {
 
                 {/* Ecosystem Section - Restructured 75vw centered with 45-55 split */}
                 <motion.div
-                    id="product"
                     className="relative z-10 flex aspect-[7/2] w-full items-center lg:aspect-[3/2]"
                 >
                     <motion.div
+                        id="product"
                         className="relative left-1/2 w-[75vw] -translate-x-1/2"
-                        style={
-                            showDebug
+                        style={{
+                            scrollMarginTop: '80px',
+                            ...(showDebug
                                 ? {
                                       outline: '4px solid cyan',
                                       outlineOffset: '-4px',
                                   }
-                                : {}
-                        }
+                                : {}),
+                        }}
                     >
                         {/* Mobile Layout - Stacked vertically */}
                         <motion.div className="flex w-full flex-col lg:hidden">

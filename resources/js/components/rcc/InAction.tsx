@@ -9,7 +9,7 @@ export default function InAction({ showDebug = false }: InActionProps) {
     return (
         <div
             id="impact"
-            className="bg-white px-24 py-16 sm:px-36 md:px-48 lg:px-60"
+            className="bg-white px-24 pb-0 sm:px-36 md:px-48 lg:px-60"
         >
             <div className="relative left-1/2 my-10 w-[75vw] -translate-x-1/2">
                 <hr className="h-[1px] border-none bg-gray-200" />

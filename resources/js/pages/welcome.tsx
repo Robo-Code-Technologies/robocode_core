@@ -15,7 +15,7 @@ export default function Welcome() {
     const [showDebug, setShowDebug] = useState(true);
 
     return (
-        <>
+        <div className="bg-white">
             <DocumentHead />
             <Navigation
                 isMobileMenuOpen={isMobileMenuOpen}
@@ -31,6 +31,6 @@ export default function Welcome() {
             <div className="bg-white py-16"></div>
             <EcosystemBanner showDebug={showDebug} />
             <Footer />
-        </>
+        </div>
     );
 }
