@@ -14,13 +14,12 @@ export function HeroSection() {
         <motion.main
             id="home"
             className="relative z-[100] flex min-h-[100vh] min-w-screen items-center bg-blue-950"
-            style={{ outline: '4px solid cyan', outlineOffset: '-4px' }}
         >
             {/* Main content container - ready for restructuring */}
             <div className="relative z-50 flex h-full min-h-full w-full items-center">
                 {/* Content area - 75% width centered, fills available height */}
                 <div 
-                    className="hero-content-1300 relative z-50 mx-auto flex h-auto w-[75%] flex-col items-center justify-center outline outline-4 outline-green-500 md:flex-row"
+                    className="hero-content-1300 relative z-50 mx-auto flex h-auto w-[75%] flex-col items-center justify-center md:flex-row"
                 >
                     <style>{`
                         @media (min-width: 1200px) and (max-width: 1600px) {
@@ -32,7 +31,7 @@ export function HeroSection() {
                     `}</style>
                     {/* Mascot section - Shows on top on mobile, right side on desktop */}
                     <motion.div 
-                        className="flex w-full items-center justify-center py-4 outline outline-2 outline-purple-500 md:order-2 md:w-[40%] md:py-6"
+                        className="flex w-full items-center justify-center py-4 md:order-2 md:w-[40%] md:py-6"
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
@@ -41,7 +40,7 @@ export function HeroSection() {
                     </motion.div>
 
                     {/* Text Content section - Shows below mascot on mobile, left side on desktop */}
-                    <motion.div className="flex w-full flex-col justify-center py-4 text-center outline outline-2 outline-yellow-500 md:order-1 md:w-[60%] md:py-6 md:text-left">
+                    <motion.div className="flex w-full flex-col justify-center py-4 text-center md:order-1 md:w-[60%] md:py-6 md:text-left">
                         <motion.h1
                             className="hero-heading-1300 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
                             style={{ 

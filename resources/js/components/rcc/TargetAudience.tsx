@@ -9,10 +9,9 @@ import School from '../../assets/school.svg';
 import TutorCenter from '../../assets/tutor_center.svg';
 
 interface TargetAudienceProps {
-    showDebug?: boolean;
 }
 
-export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
+export function TargetAudience() {
     return (
         <motion.div className="bg-white px-24 pt-16 pb-0 sm:px-36 sm:pt-24 md:px-48 md:pt-32 lg:px-60">
             {/* <motion.h1
@@ -63,14 +62,6 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
             {/* New 75vw centered div - similar to other sections */}
             <motion.div
                 className="relative left-1/2 w-[75vw] -translate-x-1/2"
-                style={
-                    showDebug
-                        ? {
-                              outline: '4px solid pink',
-                              outlineOffset: '-4px',
-                          }
-                        : {}
-                }
             >
                 <motion.h1
                     id="partners"
@@ -242,27 +233,11 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
             <div id="team">
                 <motion.div
                     className="relative left-1/2 w-[75vw] -translate-x-1/2"
-                    style={
-                        showDebug
-                            ? {
-                                  outline: '4px solid teal',
-                                  outlineOffset: '-4px',
-                              }
-                            : {}
-                    }
                 >
                     <motion.div className="flex w-full flex-col">
                         {/* Section 1 - Header */}
                         <motion.div
                             className="w-full"
-                            style={
-                                showDebug
-                                    ? {
-                                          outline: '2px solid red',
-                                          outlineOffset: '-2px',
-                                      }
-                                    : {}
-                            }
                         >
                             <motion.h1
                                 className="px-4 text-center text-3xl font-bold text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
@@ -278,27 +253,11 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                         {/* Section 2 - Where It All Began */}
                         <motion.div
                             className="w-full"
-                            style={
-                                showDebug
-                                    ? {
-                                          outline: '2px solid blue',
-                                          outlineOffset: '-2px',
-                                      }
-                                    : {}
-                            }
                         >
                             <motion.div className="flex w-full flex-col lg:flex-row">
                                 {/* Column 1 - 10% */}
                                 <motion.div
                                     className="w-full p-2 lg:w-[10%]"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid red',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     {/* Empty spacer column */}
                                 </motion.div>
@@ -306,14 +265,6 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                                 {/* Column 2 - 50% Text Content */}
                                 <motion.div
                                     className="order-2 flex w-full flex-col justify-center p-6 lg:order-none lg:w-[50%] lg:p-12"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid purple',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     <motion.h1
                                         className="text-center text-2xl font-bold text-blue-950 sm:text-3xl lg:text-left lg:text-4xl"
@@ -337,14 +288,6 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                                 {/* Column 3 - 30% Image */}
                                 <motion.div
                                     className="order-1 flex w-full items-center justify-center p-6 lg:order-none lg:w-[30%] lg:p-12"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid orange',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     <motion.img
                                         className="w-full max-w-xs rounded-lg shadow-md lg:max-w-full"
@@ -356,14 +299,6 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                                 {/* Column 4 - 10% */}
                                 <motion.div
                                     className="w-full p-2 lg:w-[10%]"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid lime',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     {/* Empty spacer column */}
                                 </motion.div>
@@ -373,27 +308,11 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                         {/* Section 3 - The AI Shift */}
                         <motion.div
                             className="w-full"
-                            style={
-                                showDebug
-                                    ? {
-                                          outline: '2px solid green',
-                                          outlineOffset: '-2px',
-                                      }
-                                    : {}
-                            }
                         >
                             <motion.div className="flex w-full flex-col lg:flex-row">
                                 {/* Column 1 - 10% */}
                                 <motion.div
                                     className="w-full p-2 lg:w-[10%]"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid red',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     {/* Empty spacer column */}
                                 </motion.div>
@@ -401,14 +320,6 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                                 {/* Column 2 - 30% Image */}
                                 <motion.div
                                     className="order-1 flex w-full items-center justify-center p-6 lg:order-none lg:w-[30%] lg:p-12"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid cyan',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     <motion.img
                                         className="w-full max-w-xs rounded-lg shadow-md lg:max-w-full"
@@ -420,14 +331,6 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                                 {/* Column 3 - 50% Text Content */}
                                 <motion.div
                                     className="order-2 flex w-full flex-col justify-center p-6 lg:order-none lg:w-[50%] lg:p-12"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid magenta',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     <motion.h1
                                         className="text-center text-2xl font-bold text-blue-950 sm:text-3xl lg:text-left lg:text-4xl"
@@ -449,14 +352,6 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                                 {/* Column 4 - 10% */}
                                 <motion.div
                                     className="w-full p-2 lg:w-[10%]"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid lime',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     {/* Empty spacer column */}
                                 </motion.div>
@@ -466,27 +361,11 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                         {/* Section 4 - Our Mission */}
                         <motion.div
                             className="w-full"
-                            style={
-                                showDebug
-                                    ? {
-                                          outline: '2px solid yellow',
-                                          outlineOffset: '-2px',
-                                      }
-                                    : {}
-                            }
                         >
                             <motion.div className="flex w-full flex-col lg:flex-row">
                                 {/* Column 1 - 10% */}
                                 <motion.div
                                     className="w-full p-2 lg:w-[10%]"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid red',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     {/* Empty spacer column */}
                                 </motion.div>
@@ -494,14 +373,6 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                                 {/* Column 2 - 50% Text Content */}
                                 <motion.div
                                     className="order-2 flex w-full flex-col justify-center p-6 lg:order-none lg:w-[50%] lg:p-12"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid purple',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     <motion.h1
                                         className="text-center text-2xl font-bold text-blue-950 sm:text-3xl lg:text-left lg:text-4xl"
@@ -523,14 +394,6 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                                 {/* Column 3 - 30% Image */}
                                 <motion.div
                                     className="order-1 flex w-full items-center justify-center p-6 lg:order-none lg:w-[30%] lg:p-12"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid orange',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     <motion.img
                                         className="w-full max-w-xs rounded-lg shadow-md lg:max-w-full"
@@ -542,14 +405,6 @@ export function TargetAudience({ showDebug = false }: TargetAudienceProps) {
                                 {/* Column 4 - 10% */}
                                 <motion.div
                                     className="w-full p-2 lg:w-[10%]"
-                                    style={
-                                        showDebug
-                                            ? {
-                                                  outline: '2px solid lime',
-                                                  outlineOffset: '-2px',
-                                              }
-                                            : {}
-                                    }
                                 >
                                     {/* Empty spacer column */}
                                 </motion.div>

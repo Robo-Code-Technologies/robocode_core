@@ -46,10 +46,9 @@ const blobTransitions = {
 };
 
 interface SubHeroProps {
-    showDebug?: boolean;
 }
 
-export function SubHero({ showDebug = false }: SubHeroProps) {
+export function SubHero() {
     return (
         <motion.div className="relative -bottom-0 min-h-screen overflow-visible bg-blue-950 pt-16">
             {/* Bottom Blob Animations */}
@@ -123,27 +122,11 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                 <motion.div
                     id="future"
                     className="relative left-1/2 w-[75vw] -translate-x-1/2"
-                    style={
-                        showDebug
-                            ? {
-                                  outline: '4px solid orange',
-                                  outlineOffset: '-4px',
-                              }
-                            : {}
-                    }
                 >
                     <motion.div className="flex w-full flex-col lg:flex-row">
                         {/* Left Section */}
                         <motion.div
                             className="flex w-full items-center justify-center lg:w-[48%]"
-                            style={
-                                showDebug
-                                    ? {
-                                          outline: '2px solid blue',
-                                          outlineOffset: '-2px',
-                                      }
-                                    : {}
-                            }
                         >
                             <motion.img
                                 className="mx-auto w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px]"
@@ -155,14 +138,6 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                         {/* Right Section */}
                         <motion.div
                             className="w-full pt-6 text-left sm:p-8 md:p-10 lg:w-[52%] lg:p-12"
-                            style={
-                                showDebug
-                                    ? {
-                                          outline: '2px solid green',
-                                          outlineOffset: '-2px',
-                                      }
-                                    : {}
-                            }
                         >
                             <motion.h1
                                 className="text-3xl leading-tight font-bold tracking-wide text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
@@ -239,27 +214,11 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                 {/* Features Section - Restructured like Orange Section */}
                 <motion.div
                     className="relative left-1/2 w-[75vw] -translate-x-1/2"
-                    style={
-                        showDebug
-                            ? {
-                                  outline: '4px solid purple',
-                                  outlineOffset: '-4px',
-                              }
-                            : {}
-                    }
                 >
                     <motion.div className="flex w-full flex-col lg:flex-row">
                         {/* Left Section - 48% */}
                         <motion.div
                             className="w-full text-left lg:w-[48%] lg:p-12"
-                            style={
-                                showDebug
-                                    ? {
-                                          outline: '2px solid blue',
-                                          outlineOffset: '-2px',
-                                      }
-                                    : {}
-                            }
                         >
                             <motion.p
                                 className="text-3xl leading-tight font-bold tracking-wide text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
@@ -283,14 +242,6 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                         {/* Right Section - 52% */}
                         <motion.div
                             className="w-full pt-6 text-right lg:w-[52%] lg:p-12 lg:text-left"
-                            style={
-                                showDebug
-                                    ? {
-                                          outline: '2px solid green',
-                                          outlineOffset: '-2px',
-                                      }
-                                    : {}
-                            }
                         >
                             <motion.ul className="pb-8 text-left sm:pb-10 md:pb-12 lg:pb-0">
                                 {featuresData.map((feature, index) => (

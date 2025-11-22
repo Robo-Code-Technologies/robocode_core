@@ -9,10 +9,9 @@ import TopBlob from '../../assets/ecosys_top_blob.svg';
 import { VerticalCarousel } from './VerticalCarousel';
 
 interface EcosystemProps {
-    showDebug?: boolean;
 }
 
-export function Ecosystem({ showDebug = false }: EcosystemProps) {
+export function Ecosystem() {
     return (
         <motion.div className="relative bg-white">
             {/* Mobile: Top blobs - FIRST in vertical flow */}
@@ -114,12 +113,6 @@ export function Ecosystem({ showDebug = false }: EcosystemProps) {
                         className="relative left-1/2 w-[75vw] -translate-x-1/2"
                         style={{
                             scrollMarginTop: '80px',
-                            ...(showDebug
-                                ? {
-                                      outline: '4px solid cyan',
-                                      outlineOffset: '-4px',
-                                  }
-                                : {}),
                         }}
                     >
                         {/* Mobile Layout - Stacked vertically */}
@@ -142,16 +135,7 @@ export function Ecosystem({ showDebug = false }: EcosystemProps) {
                             {/* Carousel */}
                             <div
                                 className="flex w-full items-center justify-center"
-                                style={
-                                    showDebug
-                                        ? {
-                                              outline: '2px solid blue',
-                                              outlineOffset: '-2px',
-                                              padding: 0,
-                                              margin: 0,
-                                          }
-                                        : { padding: 0, margin: 0 }
-                                }
+                                style={{ padding: 0, margin: 0 }}
                             >
                                 <div className="scale-[0.7] sm:scale-75 md:scale-[0.875]">
                                     <VerticalCarousel />
@@ -183,14 +167,6 @@ export function Ecosystem({ showDebug = false }: EcosystemProps) {
                             {/* Left Section - 45% - Carousel */}
                             <motion.div
                                 className="flex w-[45%] items-center justify-center"
-                                style={
-                                    showDebug
-                                        ? {
-                                              outline: '2px solid blue',
-                                              outlineOffset: '-2px',
-                                          }
-                                        : {}
-                                }
                             >
                                 <div className="scale-75">
                                     <VerticalCarousel />
@@ -200,14 +176,6 @@ export function Ecosystem({ showDebug = false }: EcosystemProps) {
                             {/* Right Section - 55% - Text */}
                             <motion.div
                                 className="flex w-[55%] flex-col justify-center p-12 text-left"
-                                style={
-                                    showDebug
-                                        ? {
-                                              outline: '2px solid green',
-                                              outlineOffset: '-2px',
-                                          }
-                                        : {}
-                                }
                             >
                                 <motion.h1
                                     className="pb-4 font-bold tracking-wide sm:pb-6 md:pb-8"

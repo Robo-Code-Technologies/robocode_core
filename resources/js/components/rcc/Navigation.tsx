@@ -1,33 +1,15 @@
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
 import RoboCodeLogo from '../../assets/rcc_logo.svg';
 
 interface NavigationProps {
     isMobileMenuOpen: boolean;
     setIsMobileMenuOpen: (open: boolean) => void;
-    showDebug: boolean;
-    setShowDebug: (show: boolean) => void;
 }
 
 export function Navigation({
     isMobileMenuOpen,
     setIsMobileMenuOpen,
-    showDebug,
-    setShowDebug,
 }: NavigationProps) {
-    useEffect(() => {
-        // Toggle the 'hide-guides' class on body to hide CSS guide lines
-        if (showDebug) {
-            document.body.classList.remove('hide-guides');
-        } else {
-            document.body.classList.add('hide-guides');
-        }
-    }, [showDebug]);
-
-    const toggleDebug = () => {
-        setShowDebug(!showDebug);
-    };
-
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -66,12 +48,10 @@ export function Navigation({
                 >
                     <motion.img
                         src={RoboCodeLogo}
-                        className="mr-2 h-6 cursor-pointer md:mr-4 md:h-7 lg:mr-8 lg:h-8"
-                        onClick={toggleDebug}
+                        className="mr-2 h-6 md:mr-4 md:h-7 lg:mr-8 lg:h-8"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        title="Toggle Debug Guides"
                     />
 
                     {navItems.map((item, index) => (
@@ -127,12 +107,10 @@ export function Navigation({
                 <div className="flex items-center justify-between px-4 py-3 sm:px-5 sm:py-3.5">
                     <motion.img
                         src={RoboCodeLogo}
-                        className="h-6 cursor-pointer sm:h-7"
-                        onClick={toggleDebug}
+                        className="h-6 sm:h-7"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        title="Toggle Debug Guides"
                     />
                     <motion.button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

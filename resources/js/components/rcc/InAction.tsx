@@ -2,10 +2,9 @@ import { motion } from 'framer-motion';
 import { ClubInActionGallery } from './ClubInActionGallery';
 
 interface InActionProps {
-    showDebug?: boolean;
 }
 
-export default function InAction({ showDebug = false }: InActionProps) {
+export default function InAction() {
     return (
         <div
             id="impact"
@@ -31,27 +30,11 @@ export default function InAction({ showDebug = false }: InActionProps) {
             {/* New 75vw centered div for In Action section */}
             <motion.div
                 className="relative left-1/2 w-[75vw] -translate-x-1/2"
-                style={
-                    showDebug
-                        ? {
-                              outline: '4px solid indigo',
-                              outlineOffset: '-4px',
-                          }
-                        : {}
-                }
             >
                 <motion.div className="flex w-full flex-col">
                     {/* Section 1 - Title */}
                     <motion.div
                         className="w-full"
-                        style={
-                            showDebug
-                                ? {
-                                      outline: '2px solid red',
-                                      outlineOffset: '-2px',
-                                  }
-                                : {}
-                        }
                     >
                         <h1
                             className="px-4 text-center text-3xl font-bold text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
@@ -67,14 +50,6 @@ export default function InAction({ showDebug = false }: InActionProps) {
                     {/* Section 2 - Gallery Grid */}
                     <motion.div
                         className="w-full"
-                        style={
-                            showDebug
-                                ? {
-                                      outline: '2px solid blue',
-                                      outlineOffset: '-2px',
-                                  }
-                                : {}
-                        }
                     >
                         <ClubInActionGallery />
                     </motion.div>

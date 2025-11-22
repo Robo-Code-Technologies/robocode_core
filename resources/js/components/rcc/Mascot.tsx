@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-interface MascotProps {
-    showDebug?: boolean;
-}
-
-export function Mascot({ showDebug = false }: MascotProps) {
+export function Mascot() {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [isBlinking, setIsBlinking] = useState(false);
     const leftEyeRef = useRef<HTMLDivElement>(null);
@@ -56,13 +52,13 @@ export function Mascot({ showDebug = false }: MascotProps) {
 
     return (
         <div
-            className={`relative w-48 md:w-64 lg:w-80 xl:w-96 ${showDebug ? 'border-4 border-red-400' : ''}`}
+            className="relative w-48 md:w-64 lg:w-80 xl:w-96"
             style={{ transform: 'scale(1.05)' }}
         >
             <img
                 src="/mascot.png"
                 alt="Mascot"
-                className={`w-full rounded-lg ${showDebug ? 'border-2 border-lime-500' : ''}`}
+                className="w-full rounded-lg"
             />
 
             {/* Left Eye */}

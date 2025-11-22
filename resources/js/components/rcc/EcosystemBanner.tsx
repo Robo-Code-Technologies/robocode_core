@@ -15,10 +15,9 @@ import Mascot2 from '../../assets/mascot_2.png';
 import PhoneIcon from '../../assets/phone.png';
 
 interface EcosystemBannerProps {
-    showDebug?: boolean;
 }
 
-export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
+export function EcosystemBanner() {
     return (
         <motion.div className="relative w-full bg-white">
             {/* Mobile: Top blobs - FIRST in vertical flow */}
@@ -336,27 +335,11 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                 
                 <motion.div
                     className="relative z-10 left-1/2 w-[75vw] -translate-x-1/2"
-                    style={
-                        showDebug
-                            ? {
-                                  outline: '4px solid violet',
-                                  outlineOffset: '-4px',
-                              }
-                            : {}
-                    }
                 >
                     <motion.div className="flex w-full flex-col lg:flex-row">
                         {/* Left Section - 50% Mascot and Links */}
                         <motion.div
                             className="order-2 flex w-full flex-col lg:order-none lg:w-1/2"
-                            style={
-                                showDebug
-                                    ? {
-                                          outline: '2px solid red',
-                                          outlineOffset: '-2px',
-                                      }
-                                    : {}
-                            }
                         >
                             {/* Upper section - Mascot */}
                             <div className="relative h-1/2 overflow-hidden pr-24">
@@ -538,14 +521,6 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                         {/* Right Section - 50% Contact Form */}
                         <motion.div
                             className="order-1 w-full lg:order-none lg:w-1/2"
-                            style={
-                                showDebug
-                                    ? {
-                                          outline: '2px solid blue',
-                                          outlineOffset: '-2px',
-                                      }
-                                    : {}
-                            }
                         >
                             <h1
                                 id="contact"
