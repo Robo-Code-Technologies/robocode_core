@@ -2,6 +2,17 @@
 
 @plugin 'tailwindcss-animate';
 
+/* Scroll padding to account for fixed navbar */
+html {
+    scroll-padding-top: 150px;
+}
+
+/* Specific scroll margin for Product section */
+#product {
+    scroll-margin-top: 200px;
+}
+
+
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
@@ -137,7 +148,11 @@
         @apply border-border;
     }
 
+    html {
+        @apply bg-white;
+    }
+
     body {
-        @apply bg-background text-foreground;
+        @apply bg-white text-foreground;
     }
 }

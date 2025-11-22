@@ -1,64 +1,60 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { motion } from 'framer-motion';
+import { ClubInActionGallery } from './ClubInActionGallery';
 
-import { EffectCreative, Pagination } from 'swiper/modules';
-import Image1 from '../../assets/carousel_pics/image_1.jpg';
-import Image2 from '../../assets/carousel_pics/image_2.jpg';
-import Image3 from '../../assets/carousel_pics/image_3.jpg';
-import Image4 from '../../assets/carousel_pics/image_4.jpg';
-import Image5 from '../../assets/carousel_pics/image_5.jpg';
-import Image6 from '../../assets/carousel_pics/image_6.jpg';
-import Image7 from '../../assets/carousel_pics/image_7.jpg';
-import Image8 from '../../assets/carousel_pics/image_8.jpg';
-
-const images = [Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8];
+interface InActionProps {
+}
 
 export default function InAction() {
     return (
-        <div className="bg-white">
-            <h1
+        <div
+            id="impact"
+            className="bg-white px-24 pb-0 sm:px-36 md:px-48 lg:px-60"
+        >
+            <div className="relative left-1/2 my-10 w-[75vw] -translate-x-1/2">
+                <hr className="h-[1px] border-none bg-gray-200" />
+            </div>
+
+            {/* <h1
                 className="text-center text-5xl font-bold text-blue-950"
                 style={{ fontFamily: 'Fredoka' }}
             >
                 Robocode Club in action.
             </h1>
-            <p className="mt-4 mb-12 text-center text-gray-500">
+            <p className="mt-4 text-center text-gray-500">
                 A glimpse of what we've built so far.
             </p>
 
-            <Swiper
-                className="max-w-[800px] overflow-hidden rounded-2xl shadow-xl"
-                direction="horizontal"
-                modules={[EffectCreative, Pagination]}
-                pagination={{
-                    clickable: true,
-                }}
-                effect="creative"
-                creativeEffect={{
-                    prev: {
-                        scale: 0.8,
-                        opacity: 0,
-                        translate: ['-100%', 0, 0],
-                    },
-                    next: {
-                        scale: 0.8,
-                        opacity: 0,
-                        translate: ['100%', 0, 0],
-                    },
-                }}
-                loop={true}
+            Gallery Grid
+            <ClubInActionGallery /> */}
+
+            {/* New 75vw centered div for In Action section */}
+            <motion.div
+                className="relative left-1/2 w-[75vw] -translate-x-1/2"
             >
-                {images.map((image, index) => (
-                    <SwiperSlide key={index}>
-                        <div className="aspect-[17/9] overflow-hidden">
-                            <img
-                                className="max-h-96 w-full rounded-2xl object-cover"
-                                src={image}
-                                alt={"Robocode Club in Action: " + index}
-                            />
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+                <motion.div className="flex w-full flex-col">
+                    {/* Section 1 - Title */}
+                    <motion.div
+                        className="w-full"
+                    >
+                        <h1
+                            className="px-4 text-center text-3xl font-bold text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
+                            style={{ fontFamily: 'Fredoka' }}
+                        >
+                            Robocode Club in action.
+                        </h1>
+                        <p className="mt-4 px-4 text-center text-base text-gray-500 sm:text-lg">
+                            A glimpse of what we've built so far.
+                        </p>
+                    </motion.div>
+
+                    {/* Section 2 - Gallery Grid */}
+                    <motion.div
+                        className="w-full"
+                    >
+                        <ClubInActionGallery />
+                    </motion.div>
+                </motion.div>
+            </motion.div>
         </div>
     );
 }

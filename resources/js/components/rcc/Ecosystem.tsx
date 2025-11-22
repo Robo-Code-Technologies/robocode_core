@@ -1,141 +1,88 @@
 import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Autoplay, EffectCreative, Pagination } from 'swiper/modules';
-
+import BgMobile from '../../assets/bg-mobile.svg';
+import BlobTopMobile2 from '../../assets/blob-top-mobile-2.svg';
+import BlobTopMobile from '../../assets/blob-top-mobile.svg';
 import EcosysBg from '../../assets/ecosys_bg.svg';
-import Bot from '../../assets/ecosys_bot.png';
 import BottomBlob from '../../assets/ecosys_bottom_blob.svg';
-import Elearning from '../../assets/ecosys_elearning.png';
-import Path from '../../assets/ecosys_path.png';
 import TopBlob from '../../assets/ecosys_top_blob.svg';
+import { VerticalCarousel } from './VerticalCarousel';
 
-import 'swiper/css';
-import 'swiper/css/effect-creative';
-import 'swiper/css/pagination';
+interface EcosystemProps {
+}
 
 export function Ecosystem() {
     return (
-        <motion.div className="relative aspect-[3/2] bg-white">
-            <motion.div className="absolute z-0 bg-white w-full">
+        <motion.div className="relative bg-white">
+            {/* Mobile: Top blobs - FIRST in vertical flow */}
+            <motion.div className="relative w-full lg:hidden">
+                {/* Blob 2 - Behind with animation */}
                 <motion.img
-                    className="object-cover w-full absolute -top-4 z-0"
-                    src={TopBlob}
+                    src={BlobTopMobile2}
+                    alt="Top Blob 2"
+                    className="absolute top-0 left-0 z-0 block w-full"
                     animate={{ y: [0, -10, 0] }}
                     transition={{
-                        duration: 3,
+                        duration: 4,
                         repeat: Infinity,
                         ease: 'easeInOut',
                     }}
                 />
-                <motion.img className="relative object-cover w-full z-10" src={EcosysBg} />
-                <motion.img
-                    className="absolute right-0 -bottom-10 z-0"
-                    src={BottomBlob}
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                    }}
+                {/* Blob 1 - Front */}
+                <img
+                    src={BlobTopMobile}
+                    alt="Top Blob"
+                    className="relative z-10 block w-full"
                 />
             </motion.div>
 
-            <motion.div className="relative z-10 flex aspect-[3/2] w-full items-center">
-                <motion.div className="w-1/2">
-                    <Swiper
-                        loop={true}
-                        className="h-[calc(min(450px,35vw))] w-[calc(min(450px,35vw))] rounded-xl"
-                        direction="vertical"
-                        pagination={{
-                            clickable: true,
+            {/* Mobile + Desktop: Content container - TOPMOST layer */}
+            <motion.div className="relative z-50 aspect-[7/2] lg:aspect-[3/2]">
+                {/* Mobile: SVG background */}
+                <motion.div className="absolute z-0 h-full w-full lg:hidden">
+                    <img
+                        src={BgMobile}
+                        alt="Background"
+                        className="h-full w-full object-cover"
+                    />
+                </motion.div>
+
+                {/* Desktop: Blob backgrounds */}
+                <motion.div className="absolute z-0 hidden h-full w-full bg-white lg:block">
+                    <motion.img
+                        className="absolute -top-4 z-0 h-auto w-full object-cover"
+                        src={TopBlob}
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
                         }}
-                        modules={[EffectCreative, Autoplay, Pagination]}
-                        autoplay={{
-                            delay: 3000,
-                            disableOnInteraction: true,
+                    />
+                    <motion.img
+                        className="relative z-10 h-auto w-full object-cover"
+                        src={EcosysBg}
+                    />
+                    <motion.img
+                        className="absolute right-0 -bottom-10 z-0 h-auto w-full object-cover"
+                        src={BottomBlob}
+                        animate={{ y: [0, 10, 0] }}
+                        transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
                         }}
-                        effect="creative"
-                        creativeEffect={{
-                            prev: {
-                                scale: 0.8,
-                                opacity: 0,
-                                translate: [0, '-100%', 0],
-                            },
-                            next: {
-                                scale: 0.8,
-                                opacity: 0,
-                                translate: [0, '100%', 0],
-                            },
-                        }}
-                    >
-                        <SwiperSlide>
-                            <motion.div className="flex h-full flex-col items-center rounded-xl bg-white p-10">
-                                <motion.img
-                                    src={Elearning}
-                                    className="mb-6 h-36"
-                                />
-                                <motion.h1
-                                    className="text-xl font-bold text-blue-950"
-                                    style={{ fontFamily: 'Fredoka' }}
-                                >
-                                    Robo Code Learn
-                                </motion.h1>
-                                <motion.p className="text-gray-500">
-                                    (e-Learning Hub)
-                                </motion.p>
-                                <motion.p className="mt-6 text-center text-gray-500">
-                                    Our learning platform gives students guided
-                                    lessons, interactive challenges, and
-                                    progress tracking so they can learn at their
-                                    own pace.
-                                </motion.p>
-                            </motion.div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <motion.div className="flex h-full flex-col items-center rounded-xl bg-white p-10">
-                                <motion.img src={Bot} className="mb-6 h-36" />
-                                <motion.h1
-                                    className="text-xl font-bold text-blue-950"
-                                    style={{ fontFamily: 'Fredoka' }}
-                                >
-                                    Robo Code Bot
-                                </motion.h1>
-                                <motion.p className="text-gray-500">
-                                    (Robotic Kits)
-                                </motion.p>
-                                <motion.p className="mt-6 text-center text-gray-500">
-                                    Our learning platform gives students guided
-                                    lessons, interactive challenges, and
-                                    progress tracking so they can learn at their
-                                    own pace.
-                                </motion.p>
-                            </motion.div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <motion.div className="flex h-full flex-col items-center rounded-xl bg-white p-10">
-                                <motion.img src={Path} className="mb-6 h-36" />
-                                <motion.h1
-                                    className="text-xl font-bold text-blue-950"
-                                    style={{ fontFamily: 'Fredoka' }}
-                                >
-                                    Robo Code Learn
-                                </motion.h1>
-                                <motion.p className="text-gray-500">
-                                    (e-Learning Hub)
-                                </motion.p>
-                                <motion.p className="mt-6 text-center text-gray-500">
-                                    Our learning platform gives students guided
-                                    lessons, interactive challenges, and
-                                    progress tracking so they can learn at their
-                                    own pace.
-                                </motion.p>
-                            </motion.div>
-                        </SwiperSlide>
-                    </Swiper>
+                    />
+                </motion.div>
+
+                {/* Original content - commented out */}
+                {/* <motion.div className="relative z-10 flex aspect-[3/2] w-full items-center px-24 sm:px-36 md:px-48 lg:px-60">
+                <motion.div className="flex w-1/2 justify-center">
+                    <VerticalCarousel />
                 </motion.div>
                 <motion.div className="w-1/2">
                     <motion.h1
+                        id="product"
                         className="text-6xl font-bold tracking-wide"
                         style={{ fontFamily: 'Fredoka' }}
                     >
@@ -143,12 +90,145 @@ export function Ecosystem() {
                         <br />
                         Endless way to build!
                     </motion.h1>
-                    <motion.p className='max-w-[560px] text-lg text-gray-400 mt-5'>
-                        We combined curriculum, software, and hardware into one
-                        seamless system — making robotics education easy,
-                        accessible, and replicable for everyone.
+                    <motion.p className="mt-5 max-w-[560px] text-lg text-white">
+                        We combined{' '}
+                        <span
+                            className="font-bold"
+                            style={{ color: '#F4B860' }}
+                        >
+                            curriculum, software, and hardware
+                        </span>{' '}
+                        into one seamless system — making robotics education
+                        easy, accessible, and replicable for everyone.
                     </motion.p>
                 </motion.div>
+            </motion.div> */}
+
+                {/* Ecosystem Section - Restructured 75vw centered with 45-55 split */}
+                <motion.div
+                    className="relative z-10 flex aspect-[7/2] w-full items-center lg:aspect-[3/2]"
+                >
+                    <motion.div
+                        id="product"
+                        className="relative left-1/2 w-[75vw] -translate-x-1/2"
+                        style={{
+                            scrollMarginTop: '80px',
+                        }}
+                    >
+                        {/* Mobile Layout - Stacked vertically */}
+                        <motion.div className="flex w-full flex-col lg:hidden">
+                            {/* Title */}
+                            <div className="px-4 pt-20 text-center">
+                                <h1
+                                    className="pb-4 text-3xl leading-tight font-bold tracking-wide sm:pb-6 sm:text-4xl md:pb-8 md:text-5xl"
+                                    style={{
+                                        fontFamily: 'Fredoka',
+                                        margin: 0,
+                                    }}
+                                >
+                                    One ecosystem.
+                                    <br />
+                                    Endless way to build!
+                                </h1>
+                            </div>
+
+                            {/* Carousel */}
+                            <div
+                                className="flex w-full items-center justify-center"
+                                style={{ padding: 0, margin: 0 }}
+                            >
+                                <div className="scale-[0.7] sm:scale-75 md:scale-[0.875]">
+                                    <VerticalCarousel />
+                                </div>
+                            </div>
+
+                            {/* Desc */}
+                            <div className="px-4 pb-20 text-center">
+                                <p
+                                    className="mx-auto max-w-full text-base text-white sm:max-w-[540px] sm:text-lg"
+                                    style={{ margin: 0 }}
+                                >
+                                    We combined{' '}
+                                    <span
+                                        className="font-bold"
+                                        style={{ color: '#F4B860' }}
+                                    >
+                                        curriculum, software, and hardware
+                                    </span>{' '}
+                                    into one seamless system — making robotics
+                                    education easy, accessible, and replicable
+                                    for everyone.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Desktop Layout - Side by side */}
+                        <motion.div className="hidden w-full lg:flex lg:flex-row">
+                            {/* Left Section - 45% - Carousel */}
+                            <motion.div
+                                className="flex w-[45%] items-center justify-center"
+                            >
+                                <div className="scale-75">
+                                    <VerticalCarousel />
+                                </div>
+                            </motion.div>
+
+                            {/* Right Section - 55% - Text */}
+                            <motion.div
+                                className="flex w-[55%] flex-col justify-center p-12 text-left"
+                            >
+                                <motion.h1
+                                    className="pb-4 font-bold tracking-wide sm:pb-6 md:pb-8"
+                                    style={{
+                                        fontFamily: 'Fredoka',
+                                        fontSize: 'clamp(1.5rem, 5vh, 4rem)',
+                                    }}
+                                >
+                                    One ecosystem.
+                                    <br />
+                                    Endless way to build!
+                                </motion.h1>
+                                <motion.p className="mt-4 max-w-full text-base text-white sm:text-lg">
+                                    We combined{' '}
+                                    <span
+                                        className="font-bold"
+                                        style={{ color: '#F4B860' }}
+                                    >
+                                        curriculum, software, and hardware
+                                    </span>{' '}
+                                    into one seamless system — making robotics
+                                    education easy, accessible, and replicable
+                                    for everyone.
+                                </motion.p>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
+            </motion.div>
+
+            {/* Mobile: Bottom blobs - LAST in vertical flow (flipped) - at the bottom */}
+            <motion.div
+                className="relative w-full lg:hidden"
+                style={{ transform: 'scaleY(-1)' }}
+            >
+                {/* Blob 2 - Behind with animation (flipped, way behind content div) */}
+                <motion.img
+                    src={BlobTopMobile2}
+                    alt="Bottom Blob 2"
+                    className="absolute top-0 left-0 z-0 block w-full"
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                    }}
+                />
+                {/* Blob 1 - Front (flipped) */}
+                <img
+                    src={BlobTopMobile}
+                    alt="Bottom Blob"
+                    className="relative z-10 block w-full"
+                />
             </motion.div>
         </motion.div>
     );
